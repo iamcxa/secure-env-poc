@@ -5,11 +5,11 @@ namespace Demo.Models
     public class UserCreateViewModel
     {
         [Required(ErrorMessage = "Account required.")]
-        [RegularExpression("^[a-zA-Z0-6]+$", ErrorMessage = "Account only allow English characters and numbers.")]
+        //[RegularExpression("^[a-zA-Z0-6]+$", ErrorMessage = "Account only allow English characters and numbers.")]
         public string Account { get; set; }
 
         [Required(ErrorMessage = "Password required.")]
-        [RegularExpression("^[a-zA-Z0-6]+$", ErrorMessage = "Password only allow English characters and numbers.")]
+        //[RegularExpression("^[a-zA-Z0-6]+$", ErrorMessage = "Password only allow English characters and numbers.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Name required.")]

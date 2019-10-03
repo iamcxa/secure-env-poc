@@ -4,7 +4,7 @@ namespace Demo.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index() => RedirectPermanent("/swagger");// View();
+        public IActionResult Index() => View();
         public IActionResult Error() => View();
     }
 }
