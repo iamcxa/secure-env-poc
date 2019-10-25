@@ -1,6 +1,7 @@
 using Demo.Models;
 using Demo.Providers.DataBase;
 using Demo.Providers.Interface;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
 using System.ComponentModel;

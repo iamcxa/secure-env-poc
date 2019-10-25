@@ -1,5 +1,6 @@
 using Demo.Providers.DataBase;
 using Demo.Providers.Interface;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -10,6 +11,8 @@ using System.Linq;
 
 namespace Demo.Controllers
 {
+    [EnableCors("CORS_POLICY")]
+    [ApiController]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ResponseCache(NoStore = true)]

@@ -5,6 +5,7 @@ using Demo.Providers.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ namespace Demo
 {
     public class Startup
     {
+        private static string CORS_POLICY => "CORS_POLICY";
         public IConfiguration Configuration { get; }
         public Startup(IHostingEnvironment env)
         {
@@ -29,6 +31,7 @@ namespace Demo
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy(CORS_POLICY, builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials(); }));
             services.AddMvc()
                     .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -62,7 +65,7 @@ namespace Demo
             app.UseSwaggerDocumentation();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCors(CORS_POLICY);
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
