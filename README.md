@@ -10,14 +10,24 @@ Build based on [aspnetcore-Vue-starter](https://github.com/TrilonIO/aspnetcore-V
 ### Running the tests
 Windows環境下可使用已封裝好的exe執行或是使用以下指令:
 ```bash
-# 編譯(Compile)
+# Installation
+$ npm install
+
+# Compile
 $ dotnet build
 
 # 啟動(Start)
-$ dotnet run --project Site
+$ dotnet run
+or
+$ npm run
 ```
 啟動後即可瀏覽 [http://localhost:5000](http://localhost:5000)進入測試頁面。
 
+PS: 如果遇到localhost憑證不相容的情形, 可以執行以下指令:
+```bash
+$ dotnet dotnet dev-certs https --trust
+```
+Ref: [MSDN - 信任.NET Core HTTPS 開發憑證](https://docs.microsoft.com/zh-tw/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 ### Usage
 
 後端API範例測試:
@@ -43,18 +53,15 @@ let postBody = { Account: 'test' ,Password: 'test' };
 let postOption = { encrypt: 'all' };  //option style same as axios
 const response = await connection.post(url, postBody, postOption);
 ```
+### Build with
 
+npm
+.Net Core 2.1  
 <!-- how to install or build your project -->
-## References
+### References
 
 [axios](https://github.com/axios/axios) - 0.18.0  
 [cryptico-js](https://github.com/wwwtyro/cryptico) - 1.1.0
-
-
-### Build with
-
-.Net Core 2.1  
-VueJs
 
 <!-- limitation of this POC -->
 ### License
